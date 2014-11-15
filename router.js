@@ -2,8 +2,12 @@
 
 var express        = require('express');
 var router         = express.Router();
-var jwtauth        = require('./middleware/jwtauth');
-var requireAuth    = require('./middleware/requireauth');
+
+// middleware
+var jwtAuth        = require('./middleware/jwt-auth');
+var requireAuth    = require('./middleware/require-auth');
+
+// controllers
 var authController = require('./controllers/auth-controller');
 var userController = require('./controllers/user-controller');
 
@@ -12,11 +16,11 @@ router.route('/auth/login')
   .post(authController.getToken);
 
 router.route('/users')
-  .get(jwtauth, requireAuth, userController.getUsers)
+  .get(jwtAuth, requireAuth, userController.getUsers)
   .post(userController.createUser);
 
 router.route('/secret')
-  .get(jwtauth, requireAuth, function(req, res) {
+  .get(jwtAuth, requireAuth, function(req, res) {
     res.send('Hello ' + req.user.username);
   });
 
