@@ -12,13 +12,17 @@ module.exports.getToken = function(req, res) {
     // user does not exist
     if (err)
       res.send(err);
+    if (!user) {
+      res.status(401).send('Invalid User');
+      return;
+    }
     user.comparePassword(req.body.password, function(err, isMatch) {
       if (err)
         res.send(err);
 
       // wrong password
       if (!isMatch) {
-        res.send('Not Authorized');
+        res.status(401).send('Not Authorized');
         return;
       }
 

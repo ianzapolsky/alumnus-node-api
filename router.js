@@ -15,5 +15,10 @@ router.route('/users')
   .get(jwtauth, requireAuth, userController.getUsers)
   .post(userController.createUser);
 
+router.route('/secret')
+  .get(jwtauth, requireAuth, function(req, res) {
+    res.send('Hello ' + req.user.username);
+  });
+
 module.exports = router;
 

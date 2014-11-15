@@ -17,11 +17,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use('/api', router);
 
-app.get('/secret', jwtauth, requireAuth, function(req, res){  
-  res.send('Hello ' + req.user.username)
-});
-
-
 app.listen(8000);
 console.log('alumnus api running on port 8000');
 
