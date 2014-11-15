@@ -1,0 +1,12 @@
+{
+  "name": "alumnus-node-api",
+  "main": "server.js",
+  "dependencies": {
+    "bcrypt": "latest",
+    "express": "latest",
+    "jwt-simple": "latest",
+    "moment": "latest",
+    "mongoose": "latest",
+    "body-parser": "latest"
+  }
+}
