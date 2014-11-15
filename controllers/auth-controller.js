@@ -6,7 +6,6 @@ var moment = require('moment');
 var config = require('../config');
 
 module.exports.getToken = function(req, res) {
-
   User.findOne({ username: req.body.username }, function(err, user) {
     
     // user does not exist
