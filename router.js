@@ -19,7 +19,8 @@ router.route('/auth/login')
 // users
 router.route('/users')
   .get(jwtAuth, requireAuth, userController.getUsers)
-  .post(userController.createUser);
+  .post(userController.createUser)
+  .put(jwtAuth, requireAuth, userController.updateUser);
 
 router.route('/secret')
   .get(jwtAuth, requireAuth, function(req, res) {
