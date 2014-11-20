@@ -12,6 +12,12 @@ module.exports.getUsers = function(req, res) {
   });
 };
 
+// GET 
+// return one user
+module.exports.getUser = function(req, res) {
+  res.json(req.user);   
+};
+
 // POST
 // create and save new user
 module.exports.createUser = function(req, res) {

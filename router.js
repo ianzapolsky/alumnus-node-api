@@ -22,6 +22,9 @@ router.route('/users')
   .post(userController.createUser)
   .put(jwtAuth, requireAuth, userController.updateUser);
 
+router.route('/user')
+  .get(jwtAuth, requireAuth, userController.getUser);
+
 router.route('/secret')
   .get(jwtAuth, requireAuth, function(req, res) {
     res.send('Hello ' + req.user.username);
